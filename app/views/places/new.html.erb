@@ -1,5 +1,17 @@
-<h1>New Place</h1>
-
-<%= render 'form', place: @place %>
-
-<%= link_to 'Back', places_path %>
+<div class="container favorite">
+  <div class="col-sm-8 col-md-6">
+    <div class="thumbnail">
+      <div class="caption">
+        <h1>Add City</h1>
+        <% @place.errors.full_messages.each do |e| %>
+        <p class='errors'><%=  e %></p>
+        <%end%>
+        <%= form_for(@place) do |f|%>
+        <%= f.label :city_name, "City Name:" %>
+        <%= f.text_field :city_name, id: :city %>
+        <%= f.submit 'Add Favorite City', class: "btn btn-primary"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

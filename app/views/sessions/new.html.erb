@@ -1,2 +1,33 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="container">
+  <div class="registration">
+    <div class="notice"><%= flash[:notice] %></div>
+
+
+    <h1>Log In</h1>
+    <%= form_tag( '/login' ) do %>
+
+    <div class="box">
+      <div class="form-group row ">
+        <span class="col-sm-2 col-form-label inputs" id: :Email>
+          <%= label_tag :email %>
+          <%= text_field_tag :email %>
+        </span>
+      </div>
+
+
+      <div class="form-group row">
+        <span class="col-sm-2 col-form-label inputs" id: :Password >
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+        </span>
+      </div>
+
+      <p class="button">
+        <%= submit_tag 'Log In', class: "btn btn-primary" %>
+      </p>
+
+
+      <% end %>
+    </div>
+  </div>
+</div>

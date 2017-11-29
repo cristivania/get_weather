@@ -1,4 +1,4 @@
-class FavoriteCitiesController < ApplicationController
+class PlacesController < ApplicationController
   def new
     @place = Place.new
   end
