@@ -1,10 +1,12 @@
 class PlacesController < ApplicationController
+
+
   def new
     @place = Place.new
   end
 
   def create
-    @place = current_user.favorite_cities.build(favorite_params)
+    @place = current_user.places.build(place_params)
     if @place.save
       redirect_to dashboard_path, notice: 'City saved'
     else
@@ -13,7 +15,7 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place = current_user.favorite_cities.find(params[:id])
+    @place = current_user.places.find(params[:id])
     @unit = params[:unit].present? ? params[:unit] : 'C'
     @current_weather = WeatherApi.get_weather(@place.city_name, @unit)
   end
@@ -25,7 +27,7 @@ class PlacesController < ApplicationController
   end
 
   private
-  def favorite_params
-    params.require(:favorite_city).permit(:city_name, :user_id)
+  def place_params
+    params.require(:place).permit(:city_name, :user_id)
   end
 end
