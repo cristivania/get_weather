@@ -1,4 +1,4 @@
-class FavoriteCity < ApplicationRecord
+class Place < ApplicationRecord
   belongs_to :user
   geocoded_by :city_name do |object, results|
     if results.present?

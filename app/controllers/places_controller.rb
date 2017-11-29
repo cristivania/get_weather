@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
 
   def create
     @place = current_user.favorite_cities.build(favorite_params)
-    if @favorite.save
+    if @place.save
       redirect_to dashboard_path, notice: 'City saved'
     else
       render :new
