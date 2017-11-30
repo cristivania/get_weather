@@ -9,10 +9,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user= User.new(allowed_params)
+    @user = User.new allowed_params
+
     if @user.save
       session[:user_id] = @user.id
-      redirect_to dashboard_path, notice: 'You have succesfully sign up.'
+      redirect_to user_places_path(@user), notice: 'Created user'
     else
       flash[:notice] = "Please check that your passwords match."
       render :new

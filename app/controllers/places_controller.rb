@@ -1,5 +1,10 @@
 class PlacesController < ApplicationController
 
+  
+  def index
+    @place = Place.new
+  end
+
 
   def new
     @place = Place.new
@@ -8,7 +13,7 @@ class PlacesController < ApplicationController
   def create
     @place = current_user.places.build(place_params)
     if @place.save
-      redirect_to dashboard_path, notice: 'City saved'
+      redirect_to user_place_path , notice: 'City saved'
     else
       render :new
     end
