@@ -1,6 +1,6 @@
 <div class="notice"><%= flash[:notice] %></div>
 
-<h2 class="welcome">Welcome <%= current_user.name.capitalize %></h2>
+<h2 class="welcome">Welcome <%= current_user.first_name.capitalize %></h2>
 <% current_user.places.each do |place| %>
 <div>
   <div class="col-sm-6 col-md-4 ">
