@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   get 'sessions/create'
 
   get 'sessions/destroy'
+  root 'users#new'
+  get 'users/index'  => 'users#index'
 
   resources :users
   resources :places
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

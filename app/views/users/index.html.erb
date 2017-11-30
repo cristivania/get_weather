@@ -6,7 +6,7 @@
   <div class="col-sm-6 col-md-4 ">
     <div class="thumbnail">
       <div class="caption cities-index">
-        <h1><%= link_to place.city_name, places_path(place.id) %></h1>
+        <h1><%= link_to place.city_name, new_place(place.id) %></h1>
 
         <% cache(place,expires_in: 1.minutes) do %>
         <h3><%=WeatherApi.get_weather(place.city_name, @unit)["main"]["temp"].round  %>&#8451;</h3>
