@@ -12,17 +12,12 @@ class PlacesController < ApplicationController
 
   def create
     @place = current_user.places.build(place_params)
-
-    respond_to do |format|
-  if @place.save
-    format.html { redirect_to user_place_path(current_user), notice: 'City was successfully created.' }
-    format.json { render :show, status: :created, location: @place }
-  else
-    format.html { render :new }
-    format.json { render json: @place.errors, status: :unprocessable_entity }
+    if @place.save
+      redirect_to user_place_path, notice: 'Favorite city saved'
+    else
+      render :new
+    end
   end
-end
-end
 
   def show
     @place = current_user.places.find(params[:id])
@@ -40,4 +35,18 @@ end
   def place_params
     params.require(:place).permit(:city_name, :user_id)
   end
+
+  private
+   # Use callbacks to share common setup or constraints between actions.
+   def set_place
+     @place = Place.find(params[:id])
+   end
+
+   def current_user
+     @current_user = User.find(params[:user_id])
+   end
+   # Never trust parameters from the scary internet, only allow the white list through.
+   def place_params
+     params.require(:place).permit(:city_name, :user_id)
+   end
 end
