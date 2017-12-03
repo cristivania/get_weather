@@ -12,8 +12,8 @@ class PlacesController < ApplicationController
 
   def create
     @place = current_user.places.build(place_params)
-    if @place.save
-      redirect_to user_place_path, notice: 'Favorite city saved'
+    if @place.save!
+      redirect_to user_place_path(current_user.id, @place), notice: 'Favorite city saved'
     else
       render :new
     end

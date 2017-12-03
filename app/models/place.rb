@@ -12,6 +12,8 @@ class Place < ApplicationRecord
   validates :city_name, presence: true
   validate :address_presence_and_founded
   before_validation :geocode
+
+
   def address_presence_and_founded
     if latitude.blank? || longitude.blank?
       errors.add(:city_name, "We couldn't find the city you are looking for")
