@@ -33,7 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use httparty for json
 gem 'httparty', '~> 0.15.6'
 gem 'hirb'
-gem 'geocoder'
+gem 'open-weather-api'
 
 
 

@@ -12,24 +12,20 @@
     <tbody>
       <p id="notice"><%= notice %></p>
 
-      <h1 class="welcome-back">Welcome back, <%= current_user.first_name%>!</h1>
-      <% current_user.places.each do |place| %>
+      <h1 class="welcome-back">Welcome back, <%= current_user.first_name %>!</h1>
+      <% @places.each do |city| %>
       <tr>
         <td><%= place.city_name %></td>
         <%  main = get_weather(place.city_name) %>
         <td><%= main["main"]["temp"] %></td>
         <td><%= main["weather"][0]["main"]%></td>
         <td><%= main["weather"][0]["description"] %></td>
-        <td><%= link_to 'Show', user_places_path %></td>
-        <td><%= link_to 'Edit', edit_user_place_path(current_user.id, city.id) %></td>
-        <td><%= link_to 'Destroy', user_place_path(current_user.id, city.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_cities_path %></td>
+        <td><%= link_to 'Edit', edit_user_city_path(current_user.id, city.id) %></td>
+        <td><%= link_to 'Destroy', user_city_path(current_user.id, city.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
 <br>
-
-<%= link_to 'New City', new_user_place_path(current_user.id) %>
-<br>
-<%= link_to 'Logout', logout_path %>

@@ -1,20 +1,32 @@
 <div class="notice"><%= flash[:notice] %></div>
 
 <h2 class="welcome">Welcome <%= current_user.first_name.capitalize %></h2>
-<% current_user.places.each do |place| %>
-<div>
+
   <div class="col-sm-6 col-md-4 ">
     <div class="thumbnail">
       <div class="caption cities-index">
-        <h1><%= link_to place.city_name, place(place.id) %></h1>
+        <% current_user.places.each do |place| %>
+            <h1><%= place.city_name.capitalize %></h1>
+            <%  main = get_weather(place.city_name) %>
+            <% weather_png = ('http://openweathermap.org/img/w/' + main['weather'][0]['icon'] + '.png') %>
+            <%= image_tag weather_png, class:"png" %></h3>
 
-        <% cache(place,expires_in: 1.minutes) do %>
-        <h3><%=WeatherApi.get_weather(place.city_name, @unit)["main"]["temp"].round  %>&#8451;</h3>
-        <% end %>
+            <h3>Main: </h3>
+            <h4><%= main["weather"][0]["main"]%></h4>
 
-        <p><%= link_to 'Delete', place_path(favorite_city.id), :method => :delete, data: {:confirm => "You sure?"} ,:title => "Delete #{favorite_city.city_name}", class:"btn btn-default"%></p>
-      </div>
-    </div>
+            <h3> Current Tempeature: </h3>
+            <h4><%= main["main"]["temp"].round%> &#176;<h4>
+
+            <h4> Humidity: </h3>
+            <h4> <%= main["main"]["humidity"]%> </h4>
+
+            <h3> Wind speed: </h3>
+            <h4><%= main["wind"]["speed"]%></h4>
+
+            <h3>Description: </h3>
+            <h4><%= main["weather"][0]["description"].capitalize %></h4>
+
+          </div>
+        </div>
   </div>
-</div>
-<% end %>
+  <% end %>

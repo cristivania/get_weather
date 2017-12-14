@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WeatherApp</title>
+  <title>Get Weather</title>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -18,22 +18,20 @@
   <nav class="navbar navbar-default nav-bar">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Weather Adviser</a>
+        <a class="navbar-brand" href="#">Get Weather</a>
       </div>
 
       <!-- Collect the nav links, forms -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right ">
-
           <% if current_user %>
-
-
+          <li><%= link_to 'Dashboard', users_path %></li>
+          <li><%= link_to 'Add a city', new_place_path %></li>
           <li><%= link_to 'Logout', logout_path %></li>
           <% else %>
           <li> <%= link_to 'Sign Up', root_path %></li>
           <li ><%= link_to "Log In", login_path %></li>
           <% end %>
-
           </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
