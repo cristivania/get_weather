@@ -12,6 +12,7 @@
 
 </head>
 <body>
+  <% if current_user %>
 <nav class="navbar navbar-default nav-bar">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -32,6 +33,7 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+  <% end %>
   <%= yield %>
 </body>
 </html>

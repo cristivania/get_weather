@@ -20,16 +20,34 @@
    padding-top: 40px;
 }
 
+.header h1{
+  text-align: center;
+  margin: 0px;
+   padding: 0px;
+   padding-top: 80px;
+}
+
+.registration{
+  width: 100%;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 2px 1px #000000;
+  width: 300px;
+  padding-left: 80px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+
+}
+
 
 .background-pic{
-background-image: url("https://kojamo.fi/wp-content/uploads/2017/02/iStock-183760372_Aurinko_1123x749.jpg");
+background-image: url("https://c1.staticflickr.com/5/4413/36978499711_6a8bf79e3b_b.jpg");
 min-height: 720px;
-position: relative;
 height: 100%;
 background-repeat: no-repeat;
-background-attachment: fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 background-size: cover;
+
 
 }

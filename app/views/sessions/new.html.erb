@@ -1,8 +1,15 @@
 <div class="background-pic">
-<div class="container sign">
-  <div class="registration">
-    <div class="notice"><%= flash[:notice] %></div>
 
+  <div class="header">
+    <h1>Want to know the forecast?</h1>
+  </div>
+
+<div class="container sign">
+
+  <div class="registration">
+
+
+    <div class="notice"><%= flash[:notice] %></div>
 
     <h1>Log In</h1>
     <%= form_tag( '/login' ) do %>
@@ -26,6 +33,7 @@
       <p class="button">
         <%= submit_tag 'Log In', class: "btn btn-primary" %>
       </p>
+      <%= link_to 'Not a member? Sign Up', root_path %>
 
 
       <% end %>
