@@ -1,24 +1,25 @@
 # README
+Get Weather is a Web Application that gives you the weather forecast for any city.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Get Weather was built using:
 
-Things you may want to cover:
+HTML and CSS
 
-* Ruby version
+Bootstrap
 
-* System dependencies
+Ruby on Rails
 
-* Configuration
+PostgreSQL Database
 
-* Database creation
+Heroku
 
-* Database initialization
+Open Weather Api 
 
-* How to run the test suite
+Gems:
 
-* Services (job queues, cache servers, search engines, etc.)
+open_weather
 
-* Deployment instructions
+bcrypt gem
 
-* ...
+HTTParty gem
+
