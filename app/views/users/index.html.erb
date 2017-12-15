@@ -1,11 +1,11 @@
 <div class="notice"><%= flash[:notice] %></div>
 
 <h2 class="welcome">Welcome <%= current_user.first_name.capitalize %></h2>
-
+<% current_user.places.each do |place| %>
   <div class="col-sm-6 col-md-4 ">
     <div class="thumbnail">
       <div class="caption cities-index">
-        <% current_user.places.each do |place| %>
+
             <h1><%= place.city_name.capitalize %></h1>
             <%  main = get_weather(place.city_name) %>
             <% weather_png = ('http://openweathermap.org/img/w/' + main['weather'][0]['icon'] + '.png') %>
@@ -14,10 +14,10 @@
             <h3>Main: </h3>
             <h4><%= main["weather"][0]["main"]%></h4>
 
-            <h3> Current Tempeature: </h3>
+            <h3> Current Temperature: </h3>
             <h4><%= main["main"]["temp"].round%> &#176;<h4>
 
-            <h4> Humidity: </h3>
+            <h3> Humidity: </h3>
             <h4> <%= main["main"]["humidity"]%> </h4>
 
             <h3> Wind speed: </h3>

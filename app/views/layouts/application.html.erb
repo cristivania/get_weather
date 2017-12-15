@@ -11,21 +11,17 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
-
 <body>
-
-
-  <nav class="navbar navbar-default nav-bar">
+<nav class="navbar navbar-default nav-bar">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">Get Weather</a>
       </div>
-
-      <!-- Collect the nav links, forms -->
+            <!-- Collect the nav links, forms -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right ">
           <% if current_user %>
-          <li><%= link_to 'Dashboard', users_path %></li>
+          <li><%= link_to 'Dashboard', dashboard_path %></li>
           <li><%= link_to 'Add a city', new_place_path %></li>
           <li><%= link_to 'Logout', logout_path %></li>
           <% else %>
